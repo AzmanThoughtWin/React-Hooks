@@ -5,9 +5,14 @@ function DataFetching() {
 
     const [post, setPost] = useState({});
     const [id, setId] = useState(1);
+    const [idFromButtonClick, setIdFromButtonClick] = useState(1);
+
+    const handleClick = () => {
+        setIdFromButtonClick(id)
+    }
 
     const fetchData = async () => {
-        return await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res => {
+        return await axios.get(`https://jsonplaceholder.typicode.com/posts/${idFromButtonClick}`).then(res => {
             // console.log(res.data)
             setPost(res.data)
         })
@@ -18,15 +23,12 @@ function DataFetching() {
 
     useEffect(() => {
         fetchData()
-    },[id])
+    },[idFromButtonClick])
 
     return (
         <div>
-            <input type="text" name="ID" value={id} onChange={e => {
-                // debugger
-                setId(e.target.value)}
-                } 
-            />
+            <input type="text" name="ID" value={id} onChange={e => setId(e.target.value)}/>
+            <button type="button" onClick={handleClick}>Fetch Data</button>
             <div>{post.title}</div>
             {/* <ul>
                 {
