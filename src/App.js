@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import ClassTimer from './components/ClassTimer';
-import FocusInput from './components/FocusInput';
-import HookTimer from './components/HookTimer';
+import DocTitleTwo from './components/DocTiteTwo';
+import DocTitleOne from './components/DocTitleOne';
 
 function App() {
   return (
       <div className="App">
-        {/* <FocusInput/> */}
-        <ClassTimer/>
-        <HookTimer/>
+        <DocTitleOne/>
+        <DocTitleTwo/>
       </div>
   );
 }
